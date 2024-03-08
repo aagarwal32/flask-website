@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div id="flex-wrapper">
+        <div class="center-layout">
+            <h1 style="font-size: 50px;"><span style="color: #951AFF;">Log</span>in</h1>
+
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.username.label }}<br>
+                    {{ form.username(size=32, class="text-field") }}<br>
+                    {% for error in form.username.errors %}
+                        <span style="color: red;">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.password.label }}<br>
+                    {{ form.password(size=32, class="text-field") }}<br>
+                    {% for error in form.password.errors %}
+                        <span style="color: red;">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+                <p>{{ form.submit(class="button log-in hover")}}</p>
+            </form>
+        </div>
+        
+    </div>
+    
+{% endblock %}
